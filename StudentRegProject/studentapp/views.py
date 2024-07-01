@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from studentapp.models import Student
 
 # Create your views here.
 
@@ -18,4 +19,10 @@ def save_student_view(request):
     print("Age : ", age)
     print("Address : ", address)
     print("Email : ", email)
+
+    student = Student(name = name, age = age, address = address, email = email)
+    student.save()
+    return redirect("add")
+
+
     
