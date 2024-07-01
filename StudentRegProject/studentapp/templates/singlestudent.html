@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Student</title>
+    </head>
+    <body>
+        <h3>
+            Student : {{ student.id }}
+        </h3>
+        <table border="2">
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Address</th>
+                <th>Email</th>
+            </tr>
+            <tbody>
+                <tr>
+                    <td>{{ student.name }}</td>
+                    <td>{{ student.age }}</td>
+                    <td>{{ student.address }}</td>
+                    <td>{{ student.email }}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div style="margin-top: 20px;">
+            <a href="{% url 'all' %}">Back</a>
+        </div>
+    </body>
+</html>

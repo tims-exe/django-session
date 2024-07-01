@@ -22,7 +22,7 @@ def save_student_view(request):
 
     student = Student(name = name, age = age, address = address, email = email)
     student.save()
-    return redirect("add")
+    return redirect("all")
 
 def get_all_students(request):
     students = Student.objects.all()
@@ -31,8 +31,14 @@ def get_all_students(request):
     }
     return render(request, 'allstudents.html', context = data)
 
-def single_student_view(request):
-    
+def single_student_view(request, student_id):
+    singlestudent = Student.objects.get(pk = student_id)
+    data = {
+        'student': singlestudent
+    }
+    return render(request, 'singlestudent.html', context=data)
 
-
-    
+def delete_student_view(request, student_id):
+    student = Student.objects.filter(pk = student_id)
+    student.delete()
+    return redirect('all')

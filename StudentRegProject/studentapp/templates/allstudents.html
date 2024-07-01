@@ -13,6 +13,8 @@
                 <th>Age</th>
                 <th>Address</th>
                 <th>Email</th>
+                <th>View Details</th>
+                <th>Delete Student</th>
             </tr>
             <tbody>
                 {% for student in studentdata %}
@@ -21,9 +23,28 @@
                         <td>{{ student.age }}</td>
                         <td>{{ student.address }}</td>
                         <td>{{ student.email }}</td>
+                        <td><a href="{% url 'getsinglestudent' student.pk %}">View</a></td>
+                        <td>
+                            <form action="{% url 'deletestudent' student.pk %}">
+                                {% csrf_token %}
+                                <input type="submit" value="Delete">
+                            </form>
+                        </td>
                     </tr>
                 {% endfor %}
             </tbody>
         </table>
+        <br>
+
+        <button onclick="newstudent()" style="background-color: black; color: white; border: none; padding: 15px; border-radius: 10px; cursor: pointer;">
+            New Student
+            <!-- <a href="{% url 'add' %}">New Student</a> -->
+        </button>
+
+        <script>
+            function newstudent() {
+                window.location.href = "http://127.0.0.1:8000/home/add"
+            }
+        </script>
     </body>
 </html>
