@@ -15,6 +15,7 @@
                 <th>Email</th>
                 <th>View Details</th>
                 <th>Delete Student</th>
+                <th>Update Student</th>
             </tr>
             <tbody>
                 {% for student in studentdata %}
@@ -30,6 +31,7 @@
                                 <input type="submit" value="Delete">
                             </form>
                         </td>
+                        <td><a href="{% url 'getstudent' student.pk %}">Update</a></td>
                     </tr>
                 {% endfor %}
             </tbody>

@@ -42,3 +42,20 @@ def delete_student_view(request, student_id):
     student = Student.objects.filter(pk = student_id)
     student.delete()
     return redirect('all')
+
+def get_student_info(request, student_id):
+    student = Student.objects.get(pk = student_id)
+    data = {
+        'student': student
+    }
+    return render(request, 'get_student_info.html', context=data)
+
+def update_student(request, student_id):
+    student = Student.objects.get(pk = student_id)
+    student.name = request.POST['name']
+    student.address = request.POST['address']
+    student.age = request.POST['age']
+    student.email = request.POST['email']
+    student.save()
+    return redirect('all')
+    
