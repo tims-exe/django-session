@@ -24,5 +24,15 @@ def save_student_view(request):
     student.save()
     return redirect("add")
 
+def get_all_students(request):
+    students = Student.objects.all()
+    data = {
+        'studentdata': students
+    }
+    return render(request, 'allstudents.html', context = data)
+
+def single_student_view(request):
+    
+
 
     

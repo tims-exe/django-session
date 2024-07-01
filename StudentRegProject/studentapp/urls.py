@@ -4,5 +4,7 @@ from . import views
 urlpatterns = [
     path("landingpage", views.get_home_page, name="landingpage"),
     path("add", views.add_student_view, name='add'),
-    path("save", views.save_student_view, name='save')
+    path("save", views.save_student_view, name='save'),
+    path("all", views.get_all_students, name="all"),
+    path('<int:student_id>/', views.single_student_view, name="getsinglestudent")
 ]
