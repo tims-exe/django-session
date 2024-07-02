@@ -37,16 +37,16 @@
             </tbody>
         </table>
         <br>
-
-        <button onclick="newstudent()" style="background-color: black; color: white; border: none; padding: 15px; border-radius: 10px; cursor: pointer;">
+        <a href="{% url 'add' %}">New Student</a>
+        <!-- <button onclick="newstudent()" style="background-color: black; color: white; border: none; padding: 15px; border-radius: 10px; cursor: pointer;">
             New Student
-            <!-- <a href="{% url 'add' %}">New Student</a> -->
+            
         </button>
 
         <script>
             function newstudent() {
                 window.location.href = "http://127.0.0.1:8000/home/add"
             }
-        </script>
+        </script> -->
     </body>
 </html>
